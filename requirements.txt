@@ -1,0 +1,4 @@
+async-timeout
+discord
+youtube_dl
+PyNaCl
