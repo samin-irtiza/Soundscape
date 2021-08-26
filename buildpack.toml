@@ -1,9 +1,9 @@
 [buildpack]
-name = "Python"
-[buildpack-2]
 name = "heroku-buildpack-ffmpeg-latest"
-[buildpack-3]
+[buildpack-2]
 name = "heroku-opus" 
+[buildpack-2]
+name = "Python"
 [publish.Ignore]
 files = [
   ".git",
