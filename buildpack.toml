@@ -2,7 +2,7 @@
 name = "heroku-buildpack-ffmpeg-latest"
 [buildpack-2]
 name = "heroku-opus" 
-[buildpack-2]
+[buildpack-3]
 name = "Python"
 [publish.Ignore]
 files = [
