@@ -1,0 +1,13 @@
+{
+  "buildpacks": [
+    {
+      "url": "https://github.com/samin-irtiza/heroku-buildpack-ffmpeg-latest" 
+    },
+    {
+      "url": "https://github.com/samin-irtiza/heroku-opus"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
