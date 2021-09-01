@@ -171,9 +171,9 @@ class MusicPlayer:
 
             source.volume = self.volume
             self.current = source
-
-            self._guild.voice_client.play(source, after=lambda _: self.repeat_state(self))
-
+            with source:
+                self._guild.voice_client.play(source, after=lambda _: self.repeat_state(self))
+                pass
             if not self.msgswitch:
               embed = discord.Embed(title="Now playing", description=f"[{source.title}]({source.web_url}) [{source.requester.mention}]", color=discord.Color.dark_blue())
               self.np = await self._channel.send(embed=embed)
