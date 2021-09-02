@@ -173,8 +173,9 @@ class MusicPlayer:
             self.current = source
             try:
                 self._guild.voice_client.play(source, after=lambda _: self.repeat_state(self))
-            except AttributeError as e:
-                print(e)
+            except:
+                source.cleanup()
+                continue
                 pass
             if not self.msgswitch:
               embed = discord.Embed(title="Now playing", description=f"[{source.title}]({source.web_url}) [{source.requester.mention}]", color=discord.Color.dark_blue())
