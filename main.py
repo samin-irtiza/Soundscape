@@ -3,6 +3,7 @@ import os
 from discord.ext import commands
 from subprocess import Popen
 import shlex
+import time
 
 client=commands.Bot(command_prefix='%')
 errcolor = discord.Colour.from_rgb(251,0,0)
