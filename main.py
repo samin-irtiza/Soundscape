@@ -29,6 +29,23 @@ async def on_ready():
 #       client.unload_extension(f"cogs.{fName[:-3]}")
 #       client.load_extension(f"cogs.{fName[:-3]}")
 #   return
+@client.command()
+async def ping(ctx):
+    """ Pong! """
+    before = time.monotonic()
+    await ctx.trigger_typing()
+    ping = (time.monotonic() - before)*1000
+    print(f"Latency is: {client.latency*1000:.5f} ms")
+    # await ctx.send(f"Pong! **{(client.latency*1000):.3f} ms**")
+    srvPing=client.latency*1000
+    await ctx.send(embed=discord.Embed.from_dict({
+      'title': "Pong!",
+      'description':"__**Current Latency**__ :hourglass:",
+      'fields': [{'name':'To Client','value':f'**{ping:.2f}**ms','inline':True},{'name':'To Server','value':f'**{srvPing:.2f}**ms','inline':True}],
+      'color':errcolor.value
+    }))
+    return
+    pass
 
 @client.command()
 @commands.check(is_me)
