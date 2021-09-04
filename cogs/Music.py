@@ -36,7 +36,7 @@ ffmpegopts = {
 }
 
 ytdl = YoutubeDL(ytdlopts)
-
+ytdl.cache.remove()
 errcolor=discord.Colour.from_rgb(251,0,0)
 class VoiceConnectionError(commands.CommandError):
     """Custom Exception class for connection errors."""
