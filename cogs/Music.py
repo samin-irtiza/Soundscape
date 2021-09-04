@@ -36,7 +36,7 @@ ffmpegopts = {
 }
 
 ytdl = YoutubeDL(ytdlopts)
-ytdl.cache.remove()
+
 errcolor=discord.Colour.from_rgb(251,0,0)
 class VoiceConnectionError(commands.CommandError):
     """Custom Exception class for connection errors."""
@@ -68,7 +68,7 @@ class YTDLSource(discord.PCMVolumeTransformer):
     @classmethod
     async def create_source(cls, ctx, search: str, *, loop, download=False,timestamp:str='0'):
         loop = loop or asyncio.get_event_loop()
-
+        ytdl.cache.remove()
         to_run = partial(ytdl.extract_info, url=search, download=download)
         data = await loop.run_in_executor(None, to_run)
 
@@ -89,6 +89,7 @@ class YTDLSource(discord.PCMVolumeTransformer):
         """Used for preparing a stream, instead of downloading.
         Since Youtube Streaming links expire."""
         loop = loop or asyncio.get_event_loop()
+        ytdl.cache.remove()
         requester = data['requester']
 
         to_run = partial(ytdl.extract_info, url=data['webpage_url'], download=False)
